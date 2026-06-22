@@ -216,13 +216,11 @@ class BleBatteryService {
 
     BluetoothCharacteristic? notifyChar = ff02 ?? fff1 ?? allChars.firstWhere((c) => c.properties.notify, orElse: () => allChars.first);
 
-    if (notifyChar != null) {
-      await notifyChar.setNotifyValue(true);
-      _notifySub?.cancel();
-      _notifySub = notifyChar.onValueReceived.listen((value) {
-        _onRxData(value);
-      });
-    }
+    await notifyChar.setNotifyValue(true);
+    _notifySub?.cancel();
+    _notifySub = notifyChar.onValueReceived.listen((value) {
+      _onRxData(value);
+    });
 
     if (_writeCharacteristic != null) {
       final woResp = !_writeCharacteristic!.properties.write && _writeCharacteristic!.properties.writeWithoutResponse;
