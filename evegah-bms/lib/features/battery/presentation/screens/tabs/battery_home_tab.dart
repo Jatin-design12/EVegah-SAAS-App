@@ -320,7 +320,7 @@ class BatteryHomeTab extends ConsumerWidget {
                   ),
                 ),
 
-                // Center Image Graphic
+                /* Center Image Graphic
                 if (showImage) ...[
                   Container(
                     width: 70,
@@ -343,7 +343,7 @@ class BatteryHomeTab extends ConsumerWidget {
                     ),
                   ),
                   const SizedBox(width: 14),
-                ],
+                ],*/
 
                 // Right Breakdowns KPI stats
                 Column(
